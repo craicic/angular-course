@@ -5,17 +5,11 @@
 </div>
 <div style="margin-top: 25px;"></div>
 <div class="row">
-  <div *ngFor="let recipeItem of recipes" class="col-12">
-    <a href="#" class="list-group-item clearfix">
-      <div class="float-left">
-        <h4>{{recipeItem.name}}</h4>
-        <p class="list-group-item-text">{{recipeItem.description}}</p>
-      </div>
-      <span class="float-right">
-        <img [src]="recipeItem.imagePath" alt=" {{ recipeItem.name }}" class="img-fluid" style="max-height: 50px;">
-      </span>
-    </a>
-    <div style="margin-top: 25px;"></div>
+  <div class="col-12">
+    <app-recipe-item
+      *ngFor="let recipeItem of recipes"
+      [recipe]="recipeItem"
+      (selectRecipeEmitter)="onSelectedRecipeCascade(recipeItem)"></app-recipe-item>
   </div>
 </div>
 
