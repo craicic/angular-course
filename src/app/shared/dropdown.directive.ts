@@ -5,19 +5,20 @@ import {Directive, ElementRef, HostBinding, HostListener, Renderer2} from '@angu
 })
 export class DropdownDirective {
 
-  // I commented this cause i'm not sure it is useful
-  // @HostBinding('class.show')
+  @HostBinding('class.open')
   isOpen = false;
 
   constructor(private elementRef: ElementRef,
               private renderer: Renderer2) {
   }
 
-  @HostListener('click') toogleOpen(eventData: Event) {
+  @HostListener('click') toggleOpen(eventData: Event) {
+    const dropdown = this.elementRef.nativeElement.nextElementSibling;
+
     if (!this.isOpen) {
-      this.renderer.addClass(this.elementRef.nativeElement.nextElementSibling, 'show');
+      this.renderer.addClass(dropdown, 'show');
     } else {
-      this.renderer.removeClass(this.elementRef.nativeElement.nextElementSibling, 'show');
+      this.renderer.removeClass(dropdown, 'show');
     }
     this.isOpen = !this.isOpen;
   }
