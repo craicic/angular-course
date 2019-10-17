@@ -10,6 +10,7 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
+      0,
       'Tasty beef',
       'This is really tasty',
       'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg',
@@ -18,6 +19,7 @@ export class RecipeService {
         new Ingredient('Concombre', 1)]),
 
     new Recipe(
+      1,
       'Spaghetti bolognaise',
       'Say it in French',
       'https://static.cuisineaz.com/240x192/i84653-spaghettis-bolognaise-rapides.jpg',
