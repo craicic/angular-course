@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Subscription} from 'rxjs';
+import {AuthService} from './auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -11,7 +11,8 @@ export class AuthComponent implements OnInit {
   isLoginMode = true;
   authForm: FormGroup;
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+  }
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -26,7 +27,24 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.authForm.value);
+    if (this.authForm.invalid) {
+      return;
+    }
+    const submittedEmail: string = this.authForm.value.email;
+    const submittedPassword: string = this.authForm.value.password;
+
+    if (this.isLoginMode) {
+      // ...
+    } else {
+      this.authService.signup(submittedEmail, submittedPassword).subscribe(
+        data => {
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
     this.authForm.reset();
   }
 }
