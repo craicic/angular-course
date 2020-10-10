@@ -1,8 +1,9 @@
-export interface AuthResponseDataModel {
+export interface AuthResponseModel {
   kind: string;
   idToken: string;
   email: string;
   refreshToken: string;
-  expiredIn: string;
+  expiresIn: string;
   localId: string;
+  registered?: boolean;
 }

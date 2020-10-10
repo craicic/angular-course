@@ -8,15 +8,35 @@
 
   <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/recipes">Recipe</a></li>
-      <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/auth">Authenticate</a></li>
-      <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/shopping-list">Shopping List</a></li>
+      <li class="nav-item" routerLinkActive="active">
+        <a
+          class="nav-link"
+          routerLink="/recipes"
+          *ngIf="isAuthenticated">Recipes</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a
+          class="nav-link"
+          routerLink="/auth"
+          *ngIf="!isAuthenticated">Authenticate</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
+      </li>
     </ul>
     <ul class="navbar-nav mr-10">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="cursor: pointer;"
+          *ngIf="isAuthenticated"
+          (click)="onLogout()">Logout</a>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdown" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false" appDropdown>
-          Dropdown
+           aria-haspopup="true" aria-expanded="false" appDropdown
+           *ngIf="isAuthenticated">
+          Manage
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save data</a>
