@@ -17,8 +17,8 @@ export class AuthInterceptorService implements HttpInterceptor {
       take(1),
       exhaustMap(user => {
         if (
-          (req.url.includes('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' , 0) ||
-          req.url.includes('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=', 0)) &&
+          (req.url.includes('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=', 0) ||
+            req.url.includes('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=', 0)) &&
           !user
         ) {
           return next.handle(req);

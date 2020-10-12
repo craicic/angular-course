@@ -21,12 +21,13 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.paramsSubscription = this.route.params.subscribe(
-        (params: Params) => {
-          this.paramId = +params['id'];
-          this.recipe = this.recipeService.getRecipes()[+this.paramId];
-        }
-      );
+    this.paramsSubscription = this.route.params.subscribe(
+      (params: Params) => {
+        const id = 'id';
+        this.paramId = +params[id];
+        this.recipe = this.recipeService.getRecipes()[+this.paramId];
+      }
+    );
   }
 
   onAddIngredientsToSL() {
