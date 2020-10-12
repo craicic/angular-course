@@ -1,8 +1,12 @@
+<ng-template appPlaceholder></ng-template>
 <div class="row">
   <div class="col-xl-4  col-md-4 offset-4">
-    <div class="alert alert-danger" *ngIf="errorResponse">
-      <p>{{ errorResponse }}</p>
-    </div>
+<!--    <div class="alert alert-danger" *ngIf="errorResponse">-->
+<!--      <p>{{ errorResponse }}</p>-->
+<!--    </div>-->
+<!--    <app-alert [message]="errorResponse" *ngIf="errorResponse" (closeAlert)="onHandleError()">-->
+<!--    </app-alert>-->
+
     <div *ngIf="isLoading" class="d-flex justify-content-center"><app-loading-spinner></app-loading-spinner></div>
     <form
       [formGroup]="authForm"
