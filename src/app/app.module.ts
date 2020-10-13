@@ -33,7 +33,6 @@ import {AuthModule} from './auth/auth.module';
   providers: [],
   bootstrap: [AppComponent],
   // not needed with angular 9 or higher
-  entryComponents: [AlertComponent]
 })
 export class AppModule {
 }
