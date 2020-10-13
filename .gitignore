@@ -50,3 +50,4 @@ environment.ts
 environment.prod.ts
 /.firebaserc
 /.firebase/
+/.browserslistrc
