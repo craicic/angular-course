@@ -17,7 +17,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   authForm: FormGroup;
   isLoading = false;
   errorResponse: string = null;
-  @ViewChild(PlaceholderDirective, {static: false}) alertHost: PlaceholderDirective;
+  @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
   private closeSub: Subscription;
 
   constructor(private authService: AuthService,
